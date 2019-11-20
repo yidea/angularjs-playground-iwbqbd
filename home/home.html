@@ -1,10 +1,12 @@
 <h1>Home</h1>
+<a ui-sref="about({token: 'abc'})" target="_blank">about</a>
 <form novalidate ng-submit="$ctrl.submit()" name="form1">  
   <label for="_username">username</label>
   <input id="_username" type="text" ng-model="$ctrl.name" name="username" required ng-minlength="4"/>
   <span ng-show="form1.username.$error.required">required</span>  
   <span ng-show="form1.username.$error.minlength">Min length is 4</span>  
   <input type="submit" ng-disabled="form1.$invalid">
+
   <div ng-init="location = 'India'">
     <select ng-model="location">
       <option value="USA">USA</option>
@@ -14,12 +16,15 @@
 </div>
   <!-- <pre contenteditable="true">{{form1 | json}}</pre> -->
 </form>
-<p>    
-  <a ui-sref="about({token: 'abc'})" target="_blank">about</a>
+<p>      
   <button class="button" ng-click="$ctrl.getUsers()"> Find Users!</button>
 </p>
-<p>
-  <ul>
-    <li ng-repeat="user in $ctrl.users">{{user.name}}</li>
-  </ul>
-</p>
+<ul>
+  <li ng-repeat="user in $ctrl.users">{{user.name}}</li>
+</ul>
+
+<h4>Posts:</h4>
+<ul>
+  <li ng-repeat="item in items">{{item.title}}</li>
+</ul>
+

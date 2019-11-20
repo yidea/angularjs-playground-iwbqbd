@@ -1,10 +1,15 @@
 class HomeCtrl {
-  constructor($scope, UserService, $location) {
-    'ngInject';
+  constructor($scope, UserService, DriversFactory, $location) {
+    "ngInject";
     this.name = "";
     this.$Uservice = UserService;
     this.users = [];
     this.$scope = $scope;
+
+    DriversFactory.getDrivers().then((res) => {
+      $scope.items = res.data;
+    })
+
   }
 
   async getUsers() {
@@ -14,7 +19,6 @@ class HomeCtrl {
   submit() {
     console.log(this.name);
   }
-
 }
 
 export default HomeCtrl;

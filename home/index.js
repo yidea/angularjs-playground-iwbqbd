@@ -11,10 +11,19 @@ homeModule.config(HomeConfig);
 import HomeCtrl from './home.controller';
 homeModule.controller('HomeCtrl', HomeCtrl);
 
-// Services
+// Services inject, so u can use in controller as argument via name
 import UserService from './user.service';
-
 homeModule.service('UserService', UserService);
-//homeModule.factory("test")
+
+// factory return an obj w method
+homeModule.factory("DriversFactory", function($http) {
+  const factory = {};
+  factory.getDrivers = function() {
+      return $http({      
+        url: 'https://jsonplaceholder.typicode.com/posts'
+      });
+    }
+  return factory;
+})
 
 export default homeModule;
