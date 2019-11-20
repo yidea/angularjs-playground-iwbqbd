@@ -3,7 +3,7 @@ function AboutConfig($stateProvider) {
 
   $stateProvider
   .state('about', {
-    url: 'about?token',
+    url: '/about',
     controller: 'AboutCtrl',
     controllerAs: '$ctrl',
     templateUrl: 'about/about.html'
