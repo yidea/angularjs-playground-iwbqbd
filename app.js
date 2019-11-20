@@ -9,12 +9,10 @@ import './home'
 import './about'
 
 // Create and bootstrap application
-const requires = [
+window.app = angular.module('app', [
   'ui.router',
   'home',
   'about'
-];
-
-window.app = angular.module('app', requires);
+]);
 
 angular.bootstrap(document.getElementById('app'), ['app']);
